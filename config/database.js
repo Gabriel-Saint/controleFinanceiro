@@ -1,6 +1,6 @@
-const mysql = require('mysql2');
+/*const mysql = require('mysql2');
 
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '12345',
@@ -15,4 +15,4 @@ const db = mysql.createConnection({
     }
   });
   
-  module.exports = db;
+  module.exports = db;*/
