@@ -3,6 +3,7 @@ const path = require('path');
 
 // Especifique o caminho completo para o arquivo do banco de dados
 const dbPath = path.resolve(__dirname, '../..DBFinanceiro.sqlite');
+console.log(dbPath);
 const db = new sqlite3.Database(dbPath, (erro) => {
   if (erro) {
     console.error('Erro ao abrir o banco de dados:', erro.message);
