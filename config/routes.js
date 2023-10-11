@@ -11,6 +11,8 @@ const buscarDadosSQL = require('../src/models/buscarDadosSQL');
 router.get('/', homeController.exibirHome);
 router.get('/buscar-dados', buscarDadosSQL.buscarDadosSQL)
 
+router.get('/buscar-valores', buscarDadosSQL.buscarValores)
+
 router.post('/registrar', cadastrarModel.processarRegistro);
 
 module.exports = router;

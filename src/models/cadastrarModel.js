@@ -28,12 +28,8 @@ function processarRegistro(req, res){
         }
        
         console.log('Registro inserido com sucesso no banco de dados.');
-        descricao = '';
-        categoria = '';
-        valor = '';
-        tipo = '';
-        dataRegistro = '';
-        res.status(200).render(caminhoAbsoluto);
+        res.redirect('/');
+        
       });
     
 
