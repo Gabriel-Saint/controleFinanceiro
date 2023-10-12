@@ -6,7 +6,7 @@ const db = require('../../config/database');
 function buscarDadosSQL(req, res){
     
     // sql
-    const sql = 'SELECT id, descricao, categoria, valor, tipo, dataRegistro FROM registros ';
+    const sql = 'SELECT id, descricao, categoria, valor, tipo, dataRegistro FROM registros ORDER BY id DESC';
     db.query(sql, (err, results) => {
         if (err) {
           console.error('Erro ao consultar registros:', err);

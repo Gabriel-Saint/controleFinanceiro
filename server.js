@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('view'));
 app.use(express.static('public/css'));
 app.use(express.static('public/js'));
+app.use(express.static('public/ico'));
 
 
 const routes = require('./config/routes');
