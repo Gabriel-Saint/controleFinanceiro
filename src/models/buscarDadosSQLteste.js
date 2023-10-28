@@ -5,19 +5,13 @@ const db = require('../../config/database');
 
 function buscarDadosSQL(req, res){
     
-  let {limit, offset} = req.params;
+  //let {limit, offset} = req.params;
 
-  limit = Number(limit);
-  offset = Number(offset);
+  //limit = Number(limit);
+  //offset = Number(offset);
 
-  if(!limit){
-    limit = 20;
-  }
-  if(!offset){
-    offset = 1;
-  }
-
-    const sql = `CALL GetRegistros(${offset},${limit})`; 
+    //const sql = `CALL GetRegistros(${offset},${limit})`; 
+    const sql = `select*from registros order by id desc`;
 
 
     db.query(sql, (err, results) => {
@@ -26,7 +20,10 @@ function buscarDadosSQL(req, res){
           res.status(500).send('Erro ao consultar registros.');
         }
         console.log('consulta realizada com ssucesso no banco de dados.');
-        res.json(results);
+        //const dadosSimplificados = results[0];
+        //console.log(dadosSimplificados)
+        //res.json(dadosSimplificados);;
+        res.json(results)
       });
   
 }

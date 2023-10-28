@@ -1,15 +1,25 @@
+/*let limit;
+let offset;
 
-
-let limit = 10;
-let offset = 1;
-buscarDadosSQL(limit, offset);
 const selectItensPorPagina = document.getElementById('itensPorPagina');
 const previousPageButton = document.querySelector('.previous');
 const nextPageButton = document.querySelector('.next');
+
 selectItensPorPagina.addEventListener('change', () => {
   const selectedValor = selectItensPorPagina.value;
-  limit = selectedValor;
-  buscarDadosSQL(limit, offset);  
+  exibicao = selectedValor;
+  if (exibicao=20) {
+    limit=10
+    offset=2
+  }
+  if (exibicao=50) {
+    offset=3
+  }
+  if (exibicao=100) {
+    offset=4
+  }
+  buscarDadosSQL(offset, limit)
+ 
 });
 
 previousPageButton.addEventListener('click', () => {
@@ -17,13 +27,18 @@ previousPageButton.addEventListener('click', () => {
 });
 
 nextPageButton.addEventListener('click', () => {
-  // Lógica para ir para a próxima página
-  // Chame a função buscarDadosSQL com a página desejada
+  
 });
+if (!limit) {
+  limit=10
+}
+if (!offset) {
+  offset=1
+}
+buscarDadosSQL(limit,offset);
+function buscarDadosSQL(offset,limit) {
 
-let i = 1;
-function buscarDadosSQL(limit, offset) {
-  fetch(`/buscar-dados/${limit}/${offset}`)
+  fetch(`/buscar-dados/${offset}/${limit}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Erro na solicitação.');
@@ -33,10 +48,10 @@ function buscarDadosSQL(limit, offset) {
     .then(data => {
       const tabela = document.getElementById('tabela');
       const tbody = document.getElementById('tbody');
-
       if (data && data.length > 0) {
 
-       
+        let i = 1;
+
         data.forEach(dado => {
           const newRow = tbody.insertRow();
           const tipo = dado.tipo;
@@ -74,12 +89,6 @@ function buscarDadosSQL(limit, offset) {
               return;
             }
           });
-          selectItensPorPagina.addEventListener('change', () => {
-            const selectedValue = selectItensPorPagina.value;
-            // Faça algo com o valor selecionado, como chamar a função buscarDadosSQL
-            buscarDadosSQL(selectedValue); // Aqui, 1 é a página inicial, você pode definir conforme necessário.
-          });
-
         });
       } else {
 
@@ -93,6 +102,15 @@ function buscarDadosSQL(limit, offset) {
 
 
 }
+
+
+
+
+
+
+
+
+
 
 function handleDelete(id) {
 
@@ -124,5 +142,7 @@ function handleDelete(id) {
     });
 
 }
+
+*/
 
 

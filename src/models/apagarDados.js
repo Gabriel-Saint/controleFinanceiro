@@ -5,7 +5,8 @@ const caminhoAbsoluto = path.resolve(__dirname, '../../view/index.ejs');
 const db = require('../../config/database'); 
 
 function apagarRegistro(req, res) {
-const id = req.params.id;
+//const id = req.params.id;
+id = req.body.id;
 console.log(`${id} aqui o id na rota`);
   const sql = 'DELETE FROM registros WHERE id = ?';
   db.query(sql,[id], function (err) {
