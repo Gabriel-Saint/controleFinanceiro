@@ -7,11 +7,13 @@
     padding: 0;
 
 }
-body{
+
+body {
     background-color: #f5f5f5;
 }
+
 .entradas {
-    color: #A3E12B;
+    color: #43c138;
     font-weight: bold;
 }
 
@@ -41,10 +43,9 @@ body{
     justify-content: space-between;
 }
 
-form {
+.form-main {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
 }
 
 .seta1 {
@@ -58,16 +59,19 @@ form {
 .bi-trash3-fill {
     color: #E04014;
 }
- button{
+
+button {
     border: none;
     background-color: transparent;
 }
-.paginacao > nav{
+
+.paginacao>nav {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
 }
+
 .img {
     height: 30px;
 }
@@ -78,13 +82,47 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-.form1{
+.form1 {
     height: 400px;
     width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.form1>input {
+    height: 37.8px;
+    width: 280px;
+}
+.form1>select {
+    height: 37.8px;
+    width: 280px;
+}
+
+.form1>button {
+    min-height: 37.33px;
+    min-width: 280px;
+    margin-top: 5px;
+    
+}
+
+.form1 input[type="date"] {
+    min-height: 37.5px;
+}
+
+.form2>button {
+   
+    margin-top: -19px;
+    min-width: 280px;
+}
+.voltar{
+    margin-top: 4px;
+    min-height: 37.33px;
+    min-width: 280px;
+}
+.voltar>a{
+    text-decoration: none;
+    color: black;
 }

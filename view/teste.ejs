@@ -34,7 +34,7 @@
 
 
     <div class="form">
-      <form action="registrar" method="post" id="form">
+      <form action="registrar" method="post" class="form-main">
         <div class="input-group">
           <span class="input-group-text">Descrição:</span>
           <input type="text" aria-label="First name" class="form-control" required name="descricao" id="descricao">
@@ -44,10 +44,10 @@
             <option value=""></option>
             <option value="Compras diversas">Compras diversas</option>
             <option value="Investimentos">Investimentos</option>
-            <option value="Atualizacao de estoque">Atualização de estoque</option>
             <option value="vendas">Vendas</option>
-            <option value="manutencao">Manunteção</option>
-
+            <option value="vendas">Lazer</option>
+            <option value="vendas">Contas</option>
+            <option value="vendas">Alimentação</option>
           </select>
           <span class="input-group-text">Valor:</span>
           <input type="number" aria-label="Last name" class="form-control" id="valor" required step="0.01" name="valor">
@@ -108,7 +108,17 @@
 <script src="http://localhost:3000/buscarValores.js"></script>
 <script src="http://localhost:3000/dataTables.js"></script>
 
+<script>
 
+document.addEventListener('DOMContentLoaded', () => {
+const data = new Date();
+const ano = data.getFullYear();
+const mes = String(data.getMonth() + 1).padStart(2, '0');
+const dia = String(data.getDate()).padStart(2, '0')
+const dataFormatada = `${ano}-${mes}-${dia}`;
+
+document.getElementById('data').value = dataFormatada;
+});
 </script>
 
 </html>
