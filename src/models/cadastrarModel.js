@@ -8,11 +8,11 @@ const caminhoAbsoluto =  path.resolve(__dirname, '../../view/index.ejs');
 
 function processarRegistro(req, res){
     
-    let descricao = req.body.descricao;
-    let categoria = req.body.categoria;
-    let valor = req.body.valor;
-    let tipo = req.body.tipo;
-    let dataRegistro = req.body.dataRegistro;
+    const descricao = req.body.descricao;
+    const categoria = req.body.categoria;
+    const valor = req.body.valor;
+    const tipo = req.body.tipo;
+    const dataRegistro = req.body.dataRegistro;
 
 
 

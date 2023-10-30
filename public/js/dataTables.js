@@ -11,20 +11,44 @@ new DataTable('#example', {
         { data: 'id' },
         { data: 'descricao' },
         { data: 'categoria' },
-        { data: 'tipo' },
-        { data: 'valor' },
-        { data: 'dataRegistro' },
+        {
+            data: 'tipo',
+            render: function (data, type, row) {
+                if (type === 'display') {
+                    return data === 1 ? "Entrada" : "Saída";
+                }
+                return data;
+            }
+        },
+        {
+            data: 'valor',
+            render: function (data, type, row) {
+                if (type === 'display') {
+                    return `R$: ${data}`;
+                }
+                return data;
+            }
+        },
+        {
+            data: 'dataRegistro',
+            render: function (data, type, row) {
+                if (type === 'display') {
+            
+                    const dataFormatada = new Date(data).toLocaleDateString('pt-BR');
+                    
+                    return dataFormatada;
+                }
+                return data;
+            }
+        },
         {
             data: 'id',
             render: function (data, type, row) {
                 if (type === 'display') {
-                    return `<form action="apagar" method="post" id="formBtn">
+                    return `<form action="editar" method="get" id="formBtn">
                     <input type="hidden" value="${data}" name="id">
                     <button id="btnExcluir"" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-trash3-fill lixeira" viewBox="0 0 16 16">
-                        <path
-                        d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                    <img class="img"src="http://localhost:3000/editar.png" alt="">
                     </svg>
                 </button></form>`;
                 }
@@ -35,7 +59,10 @@ new DataTable('#example', {
     
 });
 /*const btnExcluir = document.getElementById('btnExcluir');
-
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-trash3-fill lixeira" viewBox="0 0 16 16">
+                        <path
+                        d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
 btnExcluir.addEventListener('click', () => {
     const idDoBotao = btnExcluir.getAttribute('data-id'); // Obter o valor do atributo data-id
 

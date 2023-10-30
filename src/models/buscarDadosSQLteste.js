@@ -11,7 +11,7 @@ function buscarDadosSQL(req, res){
   //offset = Number(offset);
 
     //const sql = `CALL GetRegistros(${offset},${limit})`; 
-    const sql = `select*from registros order by id desc`;
+    const sql = `select*from registros order by id`;
 
 
     db.query(sql, (err, results) => {

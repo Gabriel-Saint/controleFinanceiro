@@ -12,6 +12,7 @@ app.use(express.static('view'));
 app.use(express.static('public/css'));
 app.use(express.static('public/js'));
 app.use(express.static('public/ico'));
+app.use(express.static('public/images'));
 
 
 const routes = require('./config/routes');
